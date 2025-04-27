@@ -1,5 +1,178 @@
-git init
-git remote add origin https://github.com/seu-usuario/nome-do-repositorio.git
-git add .
-git commit -m "Primeiro envio do projeto"
-git push -u origin main
+HTML 
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+</head>
+<body>
+    <div class="login-container">
+        <h1>Bem-vindo!</h1>
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="username">Usuário</label>
+                <div class="input-with-icon">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="username" placeholder="Digite seu usuário" required>
+                </div>
+            </div>
+            <div class="input-group">
+                <label for="password">Senha</label>
+                <input type="password" id="password" placeholder="Digite sua senha" required>
+            </div>
+            <button type="submit">Entrar</button>
+            <div class="extra-options">
+                <button type="button" id="forgotPassword">Esqueci minha senha</button>
+            </div>
+        </form>
+        <p id="message"></p>
+    </div>
+</body>
+</html>
+
+CSS
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Estilo do corpo */
+body {
+    background: linear-gradient(135deg, #1e3c72, #2a5298); /* Gradiente bonito */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+/* Container do login */
+.login-container {
+    background: rgba(255, 255, 255, 0.1); /* Fundo translúcido */
+    backdrop-filter: blur(10px); /* Efeito de vidro fosco */
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    width: 350px;
+    text-align: center;
+    animation: slideDown 1s ease-in-out; /* Animação ao carregar */
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    color: #fff;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Grupos de input */
+.input-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+label {
+    font-size: 1rem;
+    color: #e0e0e0;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 0.8rem;
+    margin-top: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    background: rgba(255, 255, 255);
+
+  .input-with-icon
+{
+    display: flex;
+    align-items: center;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 5px;
+    padding: 0,8rem;
+}
+
+.input-with-icon {
+    margin-right: 0.8rem;
+    color: #fff;
+}
+
+.input-with-icon {
+    border: none;
+    background: none;
+    color: #fff;
+    outline: none;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.extra-options {
+    margin-top:1rem; 
+    text-align:center;
+}
+
+.extra-options button {
+    background:none;
+    color:#61dafb; /*Azul para destaque*/
+    border: none; 
+    font-size:0.9rem;
+    cursosr: pointer;
+    text-decoration:underline;
+    transition: color 0.3s ease;
+}
+
+.extra-options button:hover {
+    color: #0078D7; /*Tom mais escuro ao passar o mouse*/
+}
+
+extra-options button:focus {
+    outline: none;
+} 
+
+JAVASCRIPT
+
+document.getElementById("loginForm").addEventListener("submit", function (event) {
+    event.preventDefault(); // Evita o envio do formulário
+
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    // Simulação de validação simples
+    if (username === "Wemerson_santos" && password === "2005") {
+        document.getElementById("message").textContent = "Login bem-sucedido!";
+        document.getElementById("message").style.color = "green";
+    } else {
+        document.getElementById("message").textContent = "Usuário ou senha incorretos.";
+        document.getElementById("message").style.color = "red";
+    }
+    document.getElementById("forgotPassword").addEventListener("click", function () {
+        alert("Por favor, entre em contato com o suporte para redefinir sua senha.");
+    // Caso queira redirecionar para outra página:
+    // window.location.href = "pagina-de-recuperacao.html";
+});
